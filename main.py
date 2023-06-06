@@ -1,5 +1,7 @@
 import requests
 import spark
+import send_email as se
+
 """
 The apis are application program interface where we data 
 is seen by user in visual format in a website
@@ -27,8 +29,11 @@ request = requests.get(url)
 # Now we bought data from url in form of dictionary
 content = request.json()
 
+body = ""
 # Accessed the article titles and description
 for article in content["articles"]:
-      print(article["title"])
-      print(article["description"])
+      body = body + article["title"] + "\n" + article["description"] + 2*"\n"
 
+body = body.encode('utf-8')
+se.send_email(body)
+print("Email_sent")
