@@ -25,7 +25,7 @@ url = "https://newsapi.org/v2/everything?" \
       "sortBy=publishedAt&" \
       "apiKey=11a66b6e97a84a61b3688f877f8f8704&" \
       "language=en"
-
+#print
 request = requests.get(url)
 
 # This brings the data in string format which is unusable
